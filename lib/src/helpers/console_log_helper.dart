@@ -55,7 +55,7 @@ class ConsoleLogHelper {
             '${request.url.queryParameters.isNotEmpty ? '\n🔀 $realRequestUrl' : ''}'
             '${body.isNotEmpty ? '\n📦 $body' : ''}'
             '\n${LogColors.BLACK}·',
-            name: 'API',
+            name: 'BM GCLogger',
           );
   }
 
@@ -166,7 +166,7 @@ class ConsoleLogHelper {
             '\n📦 $body'
             '\n$nullValuesString'
             '\n${LogColors.BLACK}·',
-            name: 'API',
+            name: 'BM GCLogger',
           );
   }
 
