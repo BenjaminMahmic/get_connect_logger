@@ -1,6 +1,6 @@
 name: get_connect_logger
 description: "Console logger for GetConnect"
-version: 0.0.1
+version: 1.0.0
 
 environment:
   sdk: '>=2.12.0 <4.0.0'
