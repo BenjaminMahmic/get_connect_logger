@@ -1,7 +1,17 @@
 library get_connect_logger;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
+import 'package:get/get_connect.dart' as g;
+
+class GetConnectLogger {
+  static void enableLogger(g.GetHttpClient httpClient) {
+    httpClient.addRequestModifier<void>((request) {
+      print('Request: ${request.method} ${request.url}');
+      return request;
+    });
+
+    httpClient.addResponseModifier<void>((request, response) {
+      print('Response: ${response.statusCode} ${response.statusText}');
+      return response;
+    });
+  }
 }
