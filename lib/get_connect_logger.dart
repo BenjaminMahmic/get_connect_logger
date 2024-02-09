@@ -6,11 +6,14 @@ import 'package:get_connect_logger/models/get_connect_logger_settings.dart';
 import 'package:get_connect_logger/src/logger/logger.dart';
 
 class GetConnectLogger {
+  static bool _enabled = false;
+
   static void enableLogger(
     g.GetHttpClient httpClient, {
     GetConnectLoggerSettings? settings,
   }) {
-    if (!kDebugMode) return;
+    if (!kDebugMode || _enabled) return;
+    _enabled = true;
     final Logger logger = Logger(httpClient, settings: settings);
     logger.startLogging();
   }
