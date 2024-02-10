@@ -6,9 +6,18 @@ import 'package:get_connect_logger/models/get_connect_logger_settings.dart';
 import 'package:get_connect_logger/src/logger/logger.dart';
 
 class GetConnectLogger {
-  static bool _enabled = false;
+  GetConnectLogger._();
 
-  static void enableLogger(
+  static GetConnectLogger? _instance;
+
+  static GetConnectLogger get instance {
+    _instance ??= GetConnectLogger._();
+    return _instance!;
+  }
+
+  bool _enabled = false;
+
+  void enableLogger(
     g.GetHttpClient httpClient, {
     GetConnectLoggerSettings? settings,
   }) {

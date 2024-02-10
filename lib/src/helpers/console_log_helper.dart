@@ -12,7 +12,29 @@ import 'package:intl/intl.dart';
 import '../constants/log_colors.dart';
 
 class ConsoleLogHelper {
-  static Future<void> logGetRequest(
+  static void printConsoleMessage(
+    Request request,
+    Response response, {
+    int? requestNumber,
+    DateTime? reqStartTime,
+    int maxResponseLenghtForPrint = 2000,
+    bool logBodyNullValues = true,
+  }) async {
+    await _logGetRequest(
+      request,
+      requestNumber: requestNumber,
+    );
+    _logGetResponse(
+      request,
+      response,
+      requestNumber: requestNumber,
+      reqStartTime: reqStartTime,
+      maxResponseLenghtForPrint: maxResponseLenghtForPrint,
+      logBodyNullValues: logBodyNullValues,
+    );
+  }
+
+  static Future<void> _logGetRequest(
     Request request, {
     int? requestNumber,
   }) async {
@@ -59,9 +81,9 @@ class ConsoleLogHelper {
           );
   }
 
-  static void logGetResponse(
-    Request<Object?> request,
-    Response<Object?> response, {
+  static void _logGetResponse(
+    Request request,
+    Response response, {
     int maxResponseLenghtForPrint = 2000,
     int? requestNumber,
     DateTime? reqStartTime,
@@ -138,7 +160,7 @@ class ConsoleLogHelper {
             .replaceAll('[0]', '${LogColors.PINK}[0]${LogColors.WHITE}')
         : '';
 
-    if (nullValuesString.contains('Null values: []')) {
+    if (nullValuesString.contains('Null values: [\n\n]')) {
       nullValuesString = '';
     }
 
@@ -186,6 +208,9 @@ class ConsoleLogHelper {
         break;
       case 'PATCH':
         method = '${LogColors.METHOD_PATCH}$method';
+        break;
+      case 'HEAD':
+        method = '${LogColors.METHOD_HEAD}$method';
         break;
       default:
         method = '${LogColors.WHITE}$method';

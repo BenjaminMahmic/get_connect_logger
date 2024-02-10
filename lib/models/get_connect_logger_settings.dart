@@ -1,9 +1,9 @@
 class GetConnectLoggerSettings {
-  final int maxResponseLenght;
+  final int maxResponseLenghtForPrint;
   final bool logBodyNullValues;
 
   GetConnectLoggerSettings({
-    this.maxResponseLenght = 2000,
-    this.logBodyNullValues = true,
+    this.maxResponseLenghtForPrint = 2000,
+    this.logBodyNullValues = false,
   });
 }
