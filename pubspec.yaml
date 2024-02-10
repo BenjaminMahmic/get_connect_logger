@@ -1,6 +1,7 @@
 name: get_connect_logger
 description: "Console logger for GetConnect"
 version: 1.0.0
+repository: "https://github.com/BenjaminMahmic/get_connect_logger"
 platforms:
   android:
   ios:
