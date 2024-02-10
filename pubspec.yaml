@@ -1,6 +1,13 @@
 name: get_connect_logger
 description: "Console logger for GetConnect"
 version: 1.0.0
+platforms:
+  android:
+  ios:
+  macos:
+  windows:
+  linux:
+  web:
 
 environment:
   sdk: '>=2.12.0 <4.0.0'
