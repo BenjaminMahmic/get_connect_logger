@@ -1,5 +1,5 @@
 name: get_connect_logger
-description: "Console logger for GetConnect"
+description: "A console logger plugin designed specifically for GetConnect, offering streamlined logging functionalities for debugging and monitoring HTTP requests and responses."
 version: 1.0.1
 repository: "https://github.com/BenjaminMahmic/get_connect_logger"
 platforms:
@@ -18,7 +18,7 @@ dependencies:
   flutter:
     sdk: flutter
   get: ^4.6.5
-  intl: ^0.18.1
+  intl: ^0.19.0
 
 dev_dependencies:
   flutter_test:
