@@ -7,7 +7,6 @@ import 'dart:developer';
 import 'package:flutter/foundation.dart';
 import 'package:get/get_connect/http/src/request/request.dart';
 import 'package:get/get_connect/http/src/response/response.dart';
-import 'package:intl/intl.dart';
 
 import '../constants/log_colors.dart';
 
@@ -38,8 +37,9 @@ class ConsoleLogHelper {
     Request request, {
     int? requestNumber,
   }) async {
+    final now = DateTime.now();
     final dateAndTime =
-        '[ ${DateFormat('dd.MM.yyyy. HH:mm:ss').format(DateTime.now())} ]';
+        '[ ${now.day}.${now.month}.${now.year}. ${now.hour}:${now.minute}:${now.second} ]';
 
     String method = _colorizedMethod(request.method.toUpperCase());
 
@@ -89,8 +89,9 @@ class ConsoleLogHelper {
     DateTime? reqStartTime,
     bool logBodyNullValues = true,
   }) {
+    final now = DateTime.now();
     final dateAndTime =
-        '[ ${DateFormat('dd.MM.yyyy. HH:mm:ss').format(DateTime.now())} ]';
+        '[ ${now.day}.${now.month}.${now.year}. ${now.hour}:${now.minute}:${now.second} ]';
     final reqDuration = reqStartTime == null
         ? ''
         : DateTime.now().difference(reqStartTime).inMilliseconds > 1000

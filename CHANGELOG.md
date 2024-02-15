@@ -6,3 +6,6 @@
 
 ## 1.0.2
 - Improved package to address Pub Points issues for enhanced compatibility and usability.
+
+## 1.0.3
+- Remove `intl` from `dependencies`
